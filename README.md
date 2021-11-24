@@ -17,6 +17,8 @@ pip3 install httpx[http2] httpx pandas lxml retrying
 
 在meta-apk中的apk.csv文件中填写需要下载的APK名称
 
+在脚本目录下新建一个logFiles文件夹
+
 ## 0x2 使用
 
 如果直接在外网的VPS进行运行，直接：
