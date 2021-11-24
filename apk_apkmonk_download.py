@@ -44,7 +44,6 @@ class DownloadAPK:
     def __init__(self, save_dir=None, thread_num=3, fpath_pre_urls='', log_download=''):
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:94.0) Gecko/20100101 Firefox/94.0',
-            'Host': 'www.apkmonk.com',
         }
         self.apkmonk = 'https://www.apkmonk.com/app'
         self.thread_num = thread_num
