@@ -43,7 +43,8 @@ def retry_if_io_error(exception):
 class DownloadAPK:
     def __init__(self, save_dir=None, thread_num=3, fpath_pre_urls='', log_download=''):
         self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:94.0) Gecko/20100101 Firefox/94.0',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',
+            'cookie': '_ga=GA1.2.157437777.1659954108; _gid=GA1.2.583445254.1659954108'
         }
         self.apkmonk = 'https://www.apkmonk.com/app'
         self.thread_num = thread_num
@@ -259,9 +260,16 @@ if __name__ == '__main__':
     root_dir = os.path.dirname(os.path.abspath(__file__))
     input_all_ai_apk_file = f'{root_dir}/meta-apk/apks.csv'
     output_dir = f'{root_dir}/apks'
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
     fpath_apk_urls = f'{root_dir}/logFiles/pkg_download_logs.txt'
+    with open(fpath_apk_urls, 'w') as f:
+        pass
+    f.close()
     fpath_download_log = f'{root_dir}/logFiles/apk_download_log.txt'
-
+    with open(fpath_download_log, 'w') as f:
+        pass
+    f.close()
     # 下载pkg_list中pkg对应的previous pkgs
     downloader = DownloadAPK(save_dir=output_dir, thread_num=threads, fpath_pre_urls=fpath_apk_urls,
                              log_download=fpath_download_log)
